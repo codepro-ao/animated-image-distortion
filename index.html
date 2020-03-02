@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efeito de distorção</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+
+        <div class="overlay first"></div>
+        <div class="overlay second"></div>
+        <div class="overlay third"></div>
+
+        <nav class="navbar">
+            <div class="menu">
+                <ion-icon name="ios-menu"></ion-icon>
+            </div>
+            <div class="lang">pt</div>
+            <div class="search">
+                <ion-icon name="ios-search"></ion-icon>
+            </div>
+        </nav>
+
+        <div class="media">
+            <ul>
+                <li>facebook</li>
+                <li>instagram</li> 
+                <li>twitter</li> 
+            </ul>
+        </div>
+
+        <div class="text">
+            <h1>
+                <span class="hidetext">Micaela</span>
+            </h1>
+            <h2>Reis</h2>
+            <h3>
+                <span class="hidetext">Coleção Março <br> 2020</span>
+            </h3>
+            <p>
+                <span class="hidetext">Micaela Patrícia de Brito Reis é uma modelo, apresentadora de televisão e actriz angolana. Foi a primeira e até agora a única miss da diáspora angolana a ganhar o Miss Angola.</span>
+            </p>
+        </div>
+
+        <div class="sponsor">
+            <img src="./image/sponsor-logo.png" alt="" srcset="">
+            <p>Patrocinador oficial</p>
+        </div>
+
+        <div class="distortion">
+
+        </div>
+    </div>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"
+      integrity="sha256-lPE3wjN2a7ABWHbGz7+MKBJaykyzqCbU96BJWjio86U=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/108/three.min.js"
+      integrity="sha256-3mBEX8I0uMLF7+AUjJeTCelosuorzYpqwBMBPDTyQqY=" crossorigin="anonymous"></script>
+    <script src="./hover-effect.umd.js"></script>
+
+    <script>
+        new hoverEffect({
+            parent: document.querySelector('.distortion'),
+            intensity:0.2,
+            image1: './image/01.png',
+            image2: './image/02.png',
+            displacementImage:'./image/diss.png',
+            imagesRatio:380 / 300
+        })
+
+
+        TweenMax.staggerFrom(".navbar div", 1.5,{
+            delay: 1.5,
+            opacity:0,
+            y: "20",
+            ease:Expo.easeInOut
+        },0.08)
+
+        TweenMax.staggerFrom(".media ul li", 1.5,{
+            delay: 1.5,
+            opacity:0,
+            x: "-20",
+            ease:Expo.easeInOut
+        },0.08)
+
+        TweenMax.from(".text h1 .hidetext", 1.5,{
+            delay: 1,
+            y: "100%",
+            ease:Expo.easeInOut
+        })
+
+        TweenMax.from(".text h3 .hidetext", 1.5,{
+            delay: 1.2,
+            y: "100%",
+            ease:Expo.easeInOut
+        })
+
+        TweenMax.from(".text p .hidetext", 1.5,{
+            delay: 1.3,
+            y: "100%",
+            ease:Expo.easeInOut
+        })
+
+        TweenMax.from(".text h2t", 1.5,{
+            delay: 1.5,
+            opacity:0,
+            x: "-10000",
+            ease:Expo.easeInOut
+        })
+
+        TweenMax.from(".sponsor img", 1.5,{
+            delay: 1.5,
+            opacity:0,
+            y: "20",
+            ease:Expo.easeInOut
+        })
+
+        TweenMax.from(".sponsor p", 1.5,{
+            delay: 1.6,
+            opacity:0,
+            y: "20",
+            ease:Expo.easeInOut
+        })
+
+
+        TweenMax.from(".distortion", 1.5,{
+            delay: 2,
+            opacity:0,
+            y: "20",
+            ease:Expo.easeInOut
+        })
+
+        TweenMax.to(".first", 1.5,{
+            delay: .5,
+            top:"-100%",
+            ease:Expo.easeInOut
+        })
+
+        TweenMax.to(".second", 1.5,{
+            delay: .7,
+            top:"-100%",
+            ease:Expo.easeInOut
+        })
+
+        TweenMax.to(".third", 1.5,{
+            delay: .9,
+            top:"-100%",
+            ease:Expo.easeInOut
+        })
+    </script>
+</body>
+</html>
